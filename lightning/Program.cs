@@ -95,7 +95,7 @@
                                                                         Console.WriteLine("but you also feel something you can't quite explain. Almost a warm feeling, in fact, it's a hot feeling. Lightning McQueen has activated his natural defenses. The heating system is turned up to 200°C.");
                                                                         Console.Write("You are at risk of perishing, yet that warm feeling persists and you know it's not just from the sweltering temperature. Do you try to escape and explain yourself [run] or flirt with Lightning McQueen [flirt]? ");
 
-                                                                    
+                                                                   
                                                                         switch (Console.ReadLine())
                                                                         {
                                                                             case "run":
@@ -168,7 +168,7 @@
                                                     break;
 
                                                 default:
-                                                    failed = true;
+                                                    failed = true; 
                                                     goto restart;
                                             }
                                             break;
