@@ -1,11 +1,16 @@
 ﻿public class mcqueen {
     public static void Main(String[] args) {
+        bool lateFromSleep;
+        string username;
+        bool failed;
+        List<string> Endings = new List<string>();
+
         Console.WriteLine("I appologize for what you're about to read.");
         while (true)
         {
-            bool lateFromSleep = false;
-            string username = "";
-            bool failed = false;
+            lateFromSleep = false;
+            username = "";
+            failed = false;
 
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("This is an interactive romance story about Lightning McQueen.");
@@ -13,7 +18,7 @@
             Console.Write("Enter your name ");
             username = Console.ReadLine();
 
-            Console.Write("Press enter to begin a roadtrip of love, " + username + ". ");
+            Console.Write("Press [enter] to begin a roadtrip of love, " + username + ". Alternatively, type [endings] to see what endings you've gotten during this session. ");
 
             switch (Console.ReadLine())
             {
@@ -90,12 +95,9 @@
                                                             switch (Console.ReadLine())
                                                             {
                                                                 case "":
-                                                                    while (true)
-                                                                    {
                                                                         Console.WriteLine("but you also feel something you can't quite explain. Almost a warm feeling, in fact, it's a hot feeling. Lightning McQueen has activated his natural defenses. The heating system is turned up to 200°C.");
                                                                         Console.Write("You are at risk of perishing, yet that warm feeling persists and you know it's not just from the sweltering temperature. Do you try to escape and explain yourself [run] or flirt with Lightning McQueen [flirt]? ");
-
-                                                                   
+                                                                 
                                                                         switch (Console.ReadLine())
                                                                         {
                                                                             case "run":
@@ -107,69 +109,63 @@
                                                                                     case "plead":
                                                                                         Console.WriteLine("You beg for your life with the passion of someone who is about to overheat and die. Lightning McQueen takes pity on you. He sees past his pity and instead of saving you, he plays Buddy Holly by Weezer at 100% volume to further torture you.");
                                                                                         Console.WriteLine("Little did Lightning McQueen know, listening to Weezer while in danger activates your stand's ability, Liquidation. Lightning McQueen turns into goo. You have won.");
-                                                                                        goto restart;
+                                                                                        Endings.Add("Liquidation. ");
+                                                                                        break;
 
                                                                                     case "flirt":
                                                                                         Console.WriteLine("You flirt with the passion of someone who is about to overheat and die. Your passion pays off, Lightning McQueen falls madly in love with you.");
                                                                                         Console.WriteLine("He turns down the heat to a comfortable 2°C to cool you down before begins driving away, the seatbelt wraps around your limp body and buckles into the latch. The next thing you know, you're sitting in a warehouse with Lightning at rest adjacent to you.");
                                                                                         Console.WriteLine("''So you're up,'' says lightning, ''I had to bring you here because I knew you would want to leave.''");
                                                                                         Console.WriteLine("You are shocked, ''Why would you do this?!~'' You have mixed feelings, you know now that you are in love with Lightning, but how can you condone kidnapping (even of someone who was unknowingly a kidnapper too)?");
-                                                                                        Console.WriteLine("''BECAUSE I LOVE YOU, '' exclaims Lightning McQueen, ''and that means I will never let you go.'' You have won.");
-                                                                                        goto restart;
+                                                                                        Console.WriteLine("''BECAUSE I LOVE YOU, " + username.ToUpper() + ",'' exclaims Lightning McQueen, ''and that means I will never let you go.'' You have won.");
+                                                                                        Endings.Add("Warehoused. ");
+                                                                                        break;
 
                                                                                     default:
                                                                                         failed = true;
-                                                                                        goto restart;
+                                                                                        break;
                                                                                 }
                                                                                 break;
 
                                                                             case "flirt":
                                                                                 Console.WriteLine("You attempt to flirt with Lightning McQueen but you haven't gotten a deep enough connection with him yet.");
-                                                                                Console.Write("Press enter to try again. ");
-
-                                                                                switch (Console.ReadLine())
-                                                                                {
-                                                                                    case "":
-                                                                                        break;
-
-                                                                                    default:
-                                                                                        failed = true;
-                                                                                        goto restart;
-                                                                                }
+                                                                                failed = true;
                                                                                 break;
 
                                                                             default:
                                                                                 failed = true;
-                                                                                goto restart;
+                                                                                break;
                                                                         }
-                                                                    }
+                                                                    
                                                                     break;
                                                                     
                                                                 default:
                                                                     failed = true;
-                                                                    goto restart;
+                                                                    break;
                                                             }
                                                             break;
 
                                                         case "no crime":
                                                             Console.WriteLine("You can't do that.");
+                                                            Endings.Add("Law Abiding Citizen. ");
                                                             failed = true;
-                                                            goto restart;
+                                                            break;
 
                                                         case "double crime":
                                                             Console.WriteLine("You wait forever. The owner never returns. ");
+                                                            Endings.Add("Eternal Wait. ");
                                                             failed = true;
-                                                            goto restart;
+                                                            break;
 
                                                         default:
                                                             failed = true;
-                                                            goto restart;
+                                                            break;
                                                     }
                                                     break;
 
                                                 default:
                                                     failed = true; 
-                                                    goto restart;
+                                                    break;
                                             }
                                             break;
 
@@ -181,24 +177,26 @@
                                             {
                                                 case "work":
                                                     Console.WriteLine("You go to work and when you get there you are immediately notified by your boss that you have been fired.");
+                                                    Endings.Add("Fired. ");
                                                     failed = true;
-                                                    goto restart;
+                                                    break;
 
                                                 case "stay":
                                                     Console.WriteLine("You walk back into your bedroom and before you is the ghostly figure of a police car.");
                                                     Console.WriteLine("''You're under arrest.''");
+                                                    Endings.Add("Arrested. ");
                                                     failed = true;
-                                                    goto restart;
+                                                    break;
 
                                                 default:
                                                     failed = true;
-                                                    goto restart;
+                                                    break;
                                             }
                                             break;
 
                                         default:
                                             failed = true;
-                                            goto restart;
+                                            break;
                                     }
 
                                     break;
@@ -211,11 +209,12 @@
                                     Console.WriteLine("Ghostly figures appear before you in the shape of racecars. They look down upon you with distain.");
                                     Console.WriteLine("Things begin to calm down and you are back in bed sleeping.");
                                     Console.WriteLine();
-                                    goto mountainDewBypass;
-
+                                    Endings.Add("Energized. ");
+                                    break;
+                                    
                                 default:
                                     failed = true;
-                                    goto restart;
+                                    break;
                             }
                             break;
 
@@ -226,31 +225,44 @@
 
                         default:
                             failed = true;
-                            goto restart;
+                            break;
+                    }
+                    break;
+
+                case "endings":
+                    Console.WriteLine(Endings);
+
+                    switch (Console.ReadLine())
+                    {
+                        case "":
+
+                            break;
+
+                        default:
+                            failed = true;
+                            break;
                     }
                     break;
 
                 default:
                     failed = true;
-                    goto restart;
+                    break;
             }
 
             // If user gives an invalid answer
-            restart:
-                switch (failed)
-                {
-                    case true:
-                        Console.WriteLine("You have failed. Lightning McQueen will never love you. (Invalid Answer or Wrong Path)");
-                        Console.Write("Press enter to try again. ");
-                        break;
+            switch (failed)
+            {
+                case true:
+                    Console.WriteLine("You have failed. Lightning McQueen will never love you. (Invalid Answer or Wrong Path)");
+                    Console.Write("Press [enter] to try again. ");
+                    break;
 
-                    default:
-                        Console.Write("Press enter to play again. ");
-                        break;
-                }
-                mountainDewBypass:
-                    Console.ReadLine();
-                    Console.Clear();
+                default:
+                    Console.Write("Press [enter] to play again. ");
+                    break;
+            }
+            Console.ReadLine();
+            Console.Clear();
         }
     }
 }
