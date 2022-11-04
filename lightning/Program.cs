@@ -18,7 +18,7 @@
             Console.Write("Enter your name ");
             username = Console.ReadLine();
 
-            Console.Write("Press [enter] to begin a roadtrip of love, " + username + ". Alternatively, type [endings] to see what endings you've gotten during this session. ");
+            Console.Write("Press the [enter] button to begin a roadtrip of love, " + username + ". Alternatively, type [endings] to see what endings you've gotten during this session. ");
 
             switch (Console.ReadLine())
             {
@@ -109,7 +109,7 @@
                                                                                     case "plead":
                                                                                         Console.WriteLine("You beg for your life with the passion of someone who is about to overheat and die. Lightning McQueen takes pity on you. He sees past his pity and instead of saving you, he plays Buddy Holly by Weezer at 100% volume to further torture you.");
                                                                                         Console.WriteLine("Little did Lightning McQueen know, listening to Weezer while in danger activates your stand's ability, Liquidation. Lightning McQueen turns into goo. You have won.");
-                                                                                        Endings.Add("Liquidation. ");
+                                                                                        Endings.Add("Liquidation");
                                                                                         break;
 
                                                                                     case "flirt":
@@ -118,7 +118,7 @@
                                                                                         Console.WriteLine("''So you're up,'' says lightning, ''I had to bring you here because I knew you would want to leave.''");
                                                                                         Console.WriteLine("You are shocked, ''Why would you do this?!~'' You have mixed feelings, you know now that you are in love with Lightning, but how can you condone kidnapping (even of someone who was unknowingly a kidnapper too)?");
                                                                                         Console.WriteLine("''BECAUSE I LOVE YOU, " + username.ToUpper() + ",'' exclaims Lightning McQueen, ''and that means I will never let you go.'' You have won.");
-                                                                                        Endings.Add("Warehoused. ");
+                                                                                        Endings.Add("Warehoused");
                                                                                         break;
 
                                                                                     default:
@@ -147,13 +147,13 @@
 
                                                         case "no crime":
                                                             Console.WriteLine("You can't do that.");
-                                                            Endings.Add("Law Abiding Citizen. ");
+                                                            Endings.Add("Law Abiding Citizen");
                                                             failed = true;
                                                             break;
 
                                                         case "double crime":
                                                             Console.WriteLine("You wait forever. The owner never returns. ");
-                                                            Endings.Add("Eternal Wait. ");
+                                                            Endings.Add("Eternal Wait");
                                                             failed = true;
                                                             break;
 
@@ -177,14 +177,14 @@
                                             {
                                                 case "work":
                                                     Console.WriteLine("You go to work and when you get there you are immediately notified by your boss that you have been fired.");
-                                                    Endings.Add("Fired. ");
+                                                    Endings.Add("Fired");
                                                     failed = true;
                                                     break;
 
                                                 case "stay":
                                                     Console.WriteLine("You walk back into your bedroom and before you is the ghostly figure of a police car.");
                                                     Console.WriteLine("''You're under arrest.''");
-                                                    Endings.Add("Arrested. ");
+                                                    Endings.Add("Arrested");
                                                     failed = true;
                                                     break;
 
@@ -209,7 +209,7 @@
                                     Console.WriteLine("Ghostly figures appear before you in the shape of racecars. They look down upon you with distain.");
                                     Console.WriteLine("Things begin to calm down and you are back in bed sleeping.");
                                     Console.WriteLine();
-                                    Endings.Add("Energized. ");
+                                    Endings.Add("Energized");
                                     break;
                                     
                                 default:
@@ -230,18 +230,12 @@
                     break;
 
                 case "endings":
-                    Console.WriteLine(Endings);
-
-                    switch (Console.ReadLine())
-                    {
-                        case "":
-
-                            break;
-
-                        default:
-                            failed = true;
-                            break;
-                    }
+                    Console.WriteLine();
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.WriteLine("ENDINGS");
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Endings.ForEach(x => Console.WriteLine(x));
+                    Console.WriteLine();
                     break;
 
                 default:
@@ -258,7 +252,7 @@
                     break;
 
                 default:
-                    Console.Write("Press [enter] to play again. ");
+                    Console.Write("Press [enter] to play again/go back to start. ");
                     break;
             }
             Console.ReadLine();
